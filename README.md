@@ -20,12 +20,12 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/3-mo
 4 - moal::volcanoplot() demo
 
 ```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-moal-volcanoplot-demo.r")
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/4-moal-volcanoplot-demo.r")
 ```
 5 - moal::heatmap() demo
 
 ```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-moal-heatmap-demo.r")
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-moal-heatmap-demo.r")
 ```
 3 - moal::ena() demo
 
