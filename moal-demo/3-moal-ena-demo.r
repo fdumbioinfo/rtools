@@ -30,7 +30,6 @@ moal::ena(omicdata=omicdata$Symbol,species="hs",dirname="T21vsControl_243",path=
 #
 "https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_4_22.tsv" -> url
 data.table::fread(url) %>% data.frame -> sif
-"inputdata/GSE65055_metadata_4_22.tsv" %>% moal::input(.) -> sif
 sif$ANEUPLOIDY %>% ordered(c("Control","T13","T18","T21")) -> factor
 factor
 moal::ena(omicdata=omicdata,factor=factor,species="hs",dirname="fc_T21vsControl_243",path="3-ena-outputdata")
