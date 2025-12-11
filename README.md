@@ -22,24 +22,24 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/3-mo
 ```r
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/4-moal-volcanoplot-demo.r")
 ```
-5 - moal::heatmap() demo
+5 - moal::qc() demo
 
 ```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-moal-heatmap-demo.r")
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-moal-QCs-demo.r")
 ```
-3 - moal::ena() demo
+6 - moal::heatmap() demo
 
 ```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-moal-omic-demo.r")
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/6-moal-heatmap-demo.r")
 ```
-3 - moal::ena() demo
+7 - moal::venn() demo
 
 ```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-moal-omic-demo.r")
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/7-moal-venn-demo.r")
 ```
-3 - moal::ena() demo
+8 - moal::ena() demo
 
 ```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-moal-omic-demo.r")
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/8-moal-normalization-demo.r")
 ```
 
