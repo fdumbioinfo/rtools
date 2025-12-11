@@ -1,39 +1,26 @@
-# rtools
-
-1 - moal install
-```r
+# -----
+# UMS IPSIT BIOINFO - Licence GPL-3
+# https://github.com/fdumbioinfo/moal
+# title: moal demo
+# date: 11-12-2025
+# -----
+#
+# change working directory
+# setwd("~/Desktop/rwd/moal-demo")
+# 1 - moal install
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/1-moal-install-r-universe.r")
-```
-2 - moal::omic() demo
-```r
+# 2 - omic analysis
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-moal-omic-demo.r")
-```
-3 - moal::ena() demo
-```r
+# 3 - functionnal analysis
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/3-moal-ena-demo.r")
-```
-4 - moal::volcanoplot() demo
-```r
+# 4 - volcanoplot
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/4-moal-volcanoplot-demo.r")
-```
-5 - moal::qc() demo
-```r
+# 5 - QCs
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-moal-QCs-demo.r")
-```
-6 - moal::heatmap() demo
-```r
+# 6 - heatmap
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/6-moal-heatmap-demo.r")
-```
-7 - moal::venn() demo
-```r
+# 7 - venn
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/7-moal-venn-demo.r")
-```
-8 - moal::normalization() demo
-```r
+# 8 - normalization
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/8-moal-normalization-demo.r")
-```
-9 - moal::normalization() demo
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/9-moal-demo-all.r")
-```
-
+#
