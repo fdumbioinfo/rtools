@@ -10,7 +10,7 @@ if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
 library(moal);moal::env()
 ??moal::heatmap
 # output directory
-if(!file.exists("6-heatmap-outputdata")){"6-heatmap-outputdata" %>% dir.create}
+if(!file.exists("5-heatmap-outputdata")){"5-heatmap-outputdata" %>% dir.create}
 # loading data
 # loading data
 # normalized expression data
@@ -40,7 +40,7 @@ heatmapdat %>% dplyr::select(c(9:30)) -> dat
 dat %>% head
 dat %>% dim
 # heatmap
-paste("6-heatmap-outputdata/Heatmap_ANEUPLOIDY_",nrow(sif),"_",nrow(dat),".pdf",sep="") -> filename
+paste("5-heatmap-outputdata/Heatmap_ANEUPLOIDY_",nrow(sif),"_",nrow(dat),".pdf",sep="") -> filename
 pdf(filename)
 moal::heatmap(dat=dat,factor=factor,labRow=heatmapdat$Symbol,labCol=sif$SampleName,dendrogram="row")
 graphics.off()

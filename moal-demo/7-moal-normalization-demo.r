@@ -10,7 +10,7 @@ if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
 library(moal);moal::env()
 ??moal::norm
 # output directory
-if(!file.exists("8-normalization-outputdata")){"8-normalization-outputdata" %>% dir.create}
+if(!file.exists("7-normalization-outputdata")){"7-normalization-outputdata" %>% dir.create}
 # simulated data
 rnorm(5*10000,5000,500) %>% matrix(nrow = 10000) %>%
   cbind(rnorm(5*10000,2000,800) %>% matrix(nrow = 10000)) %>% 
@@ -21,9 +21,9 @@ paste("s",1:10,sep="") -> SampleID
 data.frame(SampleID,BATCH) -> sif
 dat %>% setNames(c("rowID",sif$SampleID)) -> dat
 # raw data expression data
-moal::qc(dat=dat,sif=sif,dirname="rawdata",path="8-normalization-outputdata")
+moal::qc(dat=dat,sif=sif,dirname="rawdata",path="7-normalization-outputdata")
 # normalization log2 and quantile
 dat %>% dplyr::select(-1) %>% moal::norm(method = "quantile") %>% data.frame(rowID=dat$rowID,.) -> normdat
 normdat %>% str
-moal::qc(dat=normdat,sif=sif,dirname="normdata",path="8-normalization-outputdata")
+moal::qc(dat=normdat,sif=sif,dirname="normdata",path="7-normalization-outputdata")
 #

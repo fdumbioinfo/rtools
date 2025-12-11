@@ -10,7 +10,7 @@ if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
 library(moal);moal::env()
 ??moal::omic
 # output directory
-if(!file.exists("2-omic-outputdata")){"2-omic-outputdata" %>% dir.create}
+if(!file.exists("1-omic-outputdata")){"1-omic-outputdata" %>% dir.create}
 # loading data
 # normalized expression data
 "https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_datanorm_22_23786.tsv" -> url
@@ -32,5 +32,5 @@ annot %>% head
 # omic analysis with MSigDB GSEA functional analysis
 dat %>% data.frame -> dat
 sif %>% data.frame -> sif
-moal::omic(dat=dat,sif=sif,annot=annot,species="hs",model="ANEUPLOIDY",batch="TISSUE",dirname="GSE65055",path="2-omic-outputdata")
+moal::omic(dat=dat,sif=sif,annot=annot,species="hs",model="ANEUPLOIDY",batch="TISSUE",dirname="GSE65055",path="1-omic-outputdata")
 #
