@@ -6,6 +6,7 @@
 # -----
 #
 # loading libraries
+if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
 library(moal);moal::env()
 ??moal::norm
