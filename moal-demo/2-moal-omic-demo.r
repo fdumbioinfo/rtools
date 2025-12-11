@@ -13,10 +13,10 @@ library(moal);moal::env()
 if(!file.exists("2-omic-outputdata")){"2-omic-outputdata" %>% dir.create}
 # loading data
 # normalized expression data
-data.table::fread("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/inputdata/GSE65055_datanorm_22_23786.tsv") %>% data.frame -> dat
+data.table::fread("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_datanorm_22_23786.tsv") %>% data.frame -> dat
 dat %>% head
 # loading sample information file
-data.table::fread("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/inputdata/GSE65055_metadata_4_22.tsv") %>% data.frame -> sif
+data.table::fread("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_4_22.tsv") %>% data.frame -> sif
 sif %>% head
 # Ordering factors for pairwise comparison fold-changes
 sif$ANEUPLOIDY %>% ordered(c("Control","T13","T18","T21")) -> sif$ANEUPLOIDY
