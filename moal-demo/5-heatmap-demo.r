@@ -6,20 +6,24 @@
 # -----
 #
 # loading libraries
+if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
 library(moal);moal::env()
-help("heatmap")
+??moal::heatmap
 # output directory
-if(!file.exists("outputdata")){"outputdata" %>% dir.create}
+if(!file.exists("5-heatmap-outputdata")){"5-heatmap-outputdata" %>% dir.create}
+# loading data
 # loading data
 # normalized expression data
-"inputdata/GSE65055_datanorm_RBE_TISSUE_22_23786.tsv" %>% moal::input(.) -> dat
+data.table::fread("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_datanorm_RBE_TISSUE_22_23786.tsv") %>% data.frame -> dat
+dat %>% head
 # loading sample information file
-"inputdata/GSE65055_metadata_4_22.tsv" %>% moal::input(.) -> sif
+data.table::fread("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_4_22.tsv") %>% data.frame -> sif
 sif %>% head
+# Ordering factors for pairwise comparison fold-changes
 sif$ANEUPLOIDY %>% ordered(c("Control","T13","T18","T21")) -> factor
+data.table::fread("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/List_p05_fc15_ANEUPLOIDY_ud_T21vsControl_243.tsv") %>% data.frame -> sif
+sif %>% head
 
-sif$ANEUPLOIDY %>% grep("Control|T21",.,value=T) %>% ordered(c("Control","T21")) -> factor
-factor
 "inputdata/List_p05_fc15_ANEUPLOIDY_ud_T21vsControl_243.tsv" %>% input -> l1
 "inputdata/List_p05_fc15_ANEUPLOIDY_ud_T13vsControl_59.tsv" %>% input -> l2
 "inputdata/List_p05_fc15_ANEUPLOIDY_ud_T18vsControl_203.tsv" %>% input -> l3
