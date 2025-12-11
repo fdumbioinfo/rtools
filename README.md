@@ -32,7 +32,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/6-mo
 ```r
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/7-moal-normalization-demo.r")
 ```
-8 - moal::normalization() demo
+8 - moal demo all
 ```r
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/8-moal-demo-all.r")
 ```
