@@ -6,13 +6,17 @@
 # -----
 #
 # loading libraries
+if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
 library(moal);moal::env()
-help("venn")
+??moal::venn
 # output directory
-if(!file.exists("outputdata")){"outputdata" %>% dir.create}
+if(!file.exists("7-venn-outputdata")){"7-venn-outputdata" %>% dir.create}
 # loading data
-"inputdata/List_p05_fc15_ANEUPLOIDY_ud_T21vsControl_243.tsv" %>% input -> l1
-"inputdata/List_p05_fc15_ANEUPLOIDY_ud_T13vsControl_59.tsv" %>% input -> l2
-"inputdata/List_p05_fc15_ANEUPLOIDY_ud_T18vsControl_203.tsv" %>% input -> l3
-list(l1$rowID,l2$rowID,l3$rowID) %>% moal::venn(export = T,listnames = c("T21","T13","T8"),path = "outputdata")
+"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/List_p05_fc15_ANEUPLOIDY_ud_T21vsControl_243.tsv" -> url
+data.table::fread(url) %>% data.frame -> l1
+"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/List_p05_fc15_ANEUPLOIDY_ud_T13vsControl_59.tsv" -> url
+data.table::fread(url) %>% data.frame -> l2
+"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/List_p05_fc15_ANEUPLOIDY_ud_T18vsControl_203.tsv" -> url
+data.table::fread(url) %>% data.frame -> l3
+list(l1$rowID,l2$rowID,l3$rowID) %>% moal::venn(export = T,listnames = c("T21","T13","T8"),path = "7-venn-outputdata")
 #
