@@ -1,5 +1,3 @@
-# rtools
-
 <b><h3>MOAL demos</h3></b>
 
 0 - moal install
