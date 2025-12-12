@@ -1,6 +1,6 @@
 # rtools
 
-<b>MOAL demo</b>
+<b>MOAL demos</b>
 
 0 - moal install
 
@@ -33,8 +33,6 @@ if(!require("fgsea",quietly=TRUE)){BiocManager::install("fgsea",update=F)}
 if(!require("moal",quietly=TRUE)){install.packages("moal",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 #
 ```
-
-
 ```r
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
 ```
