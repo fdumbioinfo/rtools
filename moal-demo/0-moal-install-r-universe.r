@@ -41,6 +41,7 @@ if(!require("tidyselect",quietly=TRUE)){BiocManager::install("tidyselect",update
 if(!require("utils",quietly=TRUE)){BiocManager::install("utils",update=F)}
 if(!require("colourvalues",quietly=TRUE)){BiocManager::install("colourvalues",update=F)}
 if(!require("fgsea",quietly=TRUE)){BiocManager::install("fgsea",update=F)}
+if(!require("limma",quietly=TRUE)){BiocManager::install("fgsea",update=F)}
 # moal package
 if(!require("moal",quietly=TRUE)){install.packages("moal",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 #
