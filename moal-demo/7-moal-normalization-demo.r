@@ -1,6 +1,6 @@
 # -----
 # UMS IPSIT BIOINFO - Licence GPL-3
-# https://github.com/fdumbioinfo/moal
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # title: moal omic() demo
 # date: 08-12-2025
 # -----

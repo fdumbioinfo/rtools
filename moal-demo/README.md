@@ -4,13 +4,12 @@
 
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal install from r-universe
 # date: 11122025
 # -----
 # 
-# moal install
 options(pkgType = "binary")
 # annotation packages
 if(!require("moalannotgene",quietly=TRUE)){install.packages("moalannotgene",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
@@ -24,9 +23,29 @@ if(!require("moalstringdbdr",quietly=TRUE)){install.packages("moalstringdbdr",re
 if(!require("moalstringdbss",quietly=TRUE)){install.packages("moalstringdbss",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 # depend packages
 if(!require("BiocManager",quietly=TRUE)){install.packages("BiocManager")}
+if(!require("broom",quietly=TRUE)){BiocManager::install("broom",update=F)}
+if(!require("dendextend",quietly=TRUE)){BiocManager::install("dendextend",update=F)}
+if(!require("doParallel",quietly=TRUE)){BiocManager::install("doParallel",update=F)}
+if(!require("dplyr",quietly=TRUE)){BiocManager::install("dplyr",update=F)}
+if(!require("forcats",quietly=TRUE)){BiocManager::install("forcats",update=F)}
+if(!require("foreach",quietly=TRUE)){BiocManager::install("foreach",update=F)}
+if(!require("ggforce",quietly=TRUE)){BiocManager::install("ggforce",update=F)}
+if(!require("ggpubr",quietly=TRUE)){BiocManager::install("ggpubr",update=F)}
+if(!require("gplots",quietly=TRUE)){BiocManager::install("gplots",update=F)}
+if(!require("ggrepel",quietly=TRUE)){BiocManager::install("ggrepel",update=F)}
+if(!require("grDevices",quietly=TRUE)){BiocManager::install("grDevices",update=F)}
+if(!require("gridExtra",quietly=TRUE)){BiocManager::install("gridExtra",update=F)}
+if(!require("igraph",quietly=TRUE)){BiocManager::install("igraph",update=F)}
+if(!require("parallel",quietly=TRUE)){BiocManager::install("parallel",update=F)}
+if(!require("plyr",quietly=TRUE)){BiocManager::install("plyr",update=F)}
 if(!require("Rgraphviz",quietly=TRUE)){BiocManager::install("Rgraphviz",update=F)}
-if(!require("limma",quietly=TRUE)){BiocManager::install("limma",update=F)}
+if(!require("graphics",quietly=TRUE)){BiocManager::install("graphics",update=F)}
+if(!require("stringr",quietly=TRUE)){BiocManager::install("stringr",update=F)}
+if(!require("tidyselect",quietly=TRUE)){BiocManager::install("tidyselect",update=F)}
+if(!require("utils",quietly=TRUE)){BiocManager::install("utils",update=F)}
+if(!require("colourvalues",quietly=TRUE)){BiocManager::install("colourvalues",update=F)}
 if(!require("fgsea",quietly=TRUE)){BiocManager::install("fgsea",update=F)}
+if(!require("limma",quietly=TRUE)){BiocManager::install("limma",update=F)}
 # moal package
 if(!require("moal",quietly=TRUE)){install.packages("moal",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 #
@@ -37,7 +56,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-mo
 1 - moal::omic() demo
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal omic() demo
 # date: 11-12-2025
@@ -80,7 +99,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/1-mo
 2 - moal::ena() demo
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal ena() demo
 # date: 08-12-2025
@@ -153,7 +172,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-mo
 3 - moal::volcanoplot() demo
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal volcanoplot() demo
 # date: 08-12-2025
@@ -188,7 +207,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/3-mo
 4 - moal::qc() demo
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal qc() demo
 # date: 08-12-2025
@@ -222,7 +241,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/4-mo
 5 - moal::heatmap() demo
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal heatmap() demo
 # date: 08-12-2025
@@ -276,7 +295,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-mo
 6 - moal::venn() demo
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal venn() demo
 # date: 08-12-2025
@@ -305,7 +324,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/6-mo
 7 - moal::normalization() demo
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal omic() demo
 # date: 08-12-2025
@@ -341,7 +360,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/7-mo
 8 - moal demo all
 ```r
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal demo
 # date: 11-12-2025

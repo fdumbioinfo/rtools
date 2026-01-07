@@ -1,11 +1,10 @@
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal install from r-universe
 # date: 11122025
 # -----
 # 
-# moal install
 options(pkgType = "binary")
 # annotation packages
 if(!require("moalannotgene",quietly=TRUE)){install.packages("moalannotgene",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}

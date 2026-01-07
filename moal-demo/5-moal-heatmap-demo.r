@@ -1,5 +1,5 @@
 # -----
-# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal heatmap() demo
 # date: 08-12-2025
