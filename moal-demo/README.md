@@ -46,7 +46,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-mo
 # libraries
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
-library(moal);moal::env()
+library(moal)
 ??moal::omic
 # output directory
 if(!file.exists("1-omic-outputdata")){"1-omic-outputdata" %>% dir.create}
@@ -93,7 +93,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/1-mo
 # loading libraries
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
-library(moal);moal::env()
+library(moal)
 ??moal::ena
 # output directory
 if(!file.exists("2-ena-outputdata")){"2-ena-outputdata" %>% dir.create}
@@ -163,7 +163,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-mo
 # loading libraries
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
-library(moal);moal::env()
+library(moal)
 ??moal::volcanoplot
 # output directory
 if(!file.exists("3-volcanoplot-outputdata")){"3-volcanoplot-outputdata" %>% dir.create}
@@ -197,7 +197,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/3-mo
 # loading libraries
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
-library(moal);moal::env()
+library(moal)
 ??moal::qc
 # output directory
 if(!file.exists("4-QCs-outputdata")){"4-QCs-outputdata" %>% dir.create}
@@ -231,7 +231,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/4-mo
 # loading libraries
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
-library(moal);moal::env()
+library(moal)
 ??moal::heatmap
 # output directory
 if(!file.exists("5-heatmap-outputdata")){"5-heatmap-outputdata" %>% dir.create}
@@ -285,7 +285,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-mo
 # loading libraries
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
-library(moal);moal::env()
+library(moal)
 ??moal::venn
 # output directory
 if(!file.exists("6-venn-outputdata")){"6-venn-outputdata" %>% dir.create}
@@ -314,7 +314,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/6-mo
 # loading libraries
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
-library(moal);moal::env()
+library(moal)
 ??moal::norm
 # output directory
 if(!file.exists("7-normalization-outputdata")){"7-normalization-outputdata" %>% dir.create}
