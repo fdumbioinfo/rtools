@@ -33,7 +33,7 @@ moal::ena(omicdata=omicdata$Symbol,species="hs",dirname="T21vsControl_243",path=
 data.table::fread(url) %>% data.frame -> sif
 sif$ANEUPLOIDY %>% ordered(c("Control","T13","T18","T21")) -> factor
 factor
-moal::ena(omicdata=omicdata,factor=factor,species="hs",dirname="fc_T21vsControl_243",path="2-ena-outputdata")
+moal::ena(omicdata=omicdata,species="hs",dirname="fc_T21vsControl_243",path="2-ena-outputdata")
 #
 # example with Symbol list with fold-change and p-value and expression data for heatmaps
 #
