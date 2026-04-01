@@ -6,11 +6,6 @@
 # -----
 #
 options(pkgType = "binary")
-# annotation packages
-# if(!require("moalannotgene",quietly=TRUE)){install.packages("moalannotgene",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
-# if(!require("moalannotensg",quietly=TRUE)){install.packages("moalannotensg",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
-# if(!require("moalannotenst",quietly=TRUE)){install.packages("moalannotenst",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
-# if(!require("moalannotensp",quietly=TRUE)){install.packages("moalannotensp",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 # depend packages
 if(!require("BiocManager",quietly=TRUE)){install.packages("BiocManager")}
 if(!require("broom",quietly=TRUE)){BiocManager::install("broom",update=F)}
@@ -35,6 +30,4 @@ if(!require("stats",quietly=TRUE)){BiocManager::install("stats",update=F)}
 if(!require("stringr",quietly=TRUE)){BiocManager::install("stringr",update=F)}
 if(!require("tidyselect",quietly=TRUE)){BiocManager::install("tidyselect",update=F)}
 if(!require("utils",quietly=TRUE)){BiocManager::install("utils",update=F)}
-# uem915 package
-# if(!require("uem915",quietly=TRUE)){install.packages("uem915",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 #
