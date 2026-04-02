@@ -1,15 +1,17 @@
 #
 # UEM915 analyse transcriptomique
 #
-# introduction ? R
+# introduction R
 #
 # working directory
 setwd(".")
 #
-# Analyse omique: ANEUPLODY  
+# Omic analysis: ANEUPLODY  
 #
 # publication: https://doi.org/10.1111/cge.12731
-# donn?es de la publication sur GEO (Gene Expression Omnibus): https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65055
+# data on GEO database (Gene Expression Omnibus): https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65055
+# uem915 install
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/uem915-demo/0-uem915-install-r-universe-oldR.r")
 # chargement des packages
 library(uem915)
 uem915::env()
