@@ -40,7 +40,7 @@ if(!require("igraph",quietly=TRUE)){BiocManager::install("igraph",update=F)}
 if(!require("parallel",quietly=TRUE)){BiocManager::install("parallel",update=F)}
 if(!require("plyr",quietly=TRUE)){BiocManager::install("plyr",update=F)}
 if(!require("Rgraphviz",quietly=TRUE)){BiocManager::install("Rgraphviz",update=F)}
-if(!require("graphics",quietly=TRUE)){BiocManager::install("graphics",update=F)}
+if(!require("scales",quietly=TRUE)){install.packages("scales",update=F)}
 if(!require("stringr",quietly=TRUE)){BiocManager::install("stringr",update=F)}
 if(!require("tidyselect",quietly=TRUE)){BiocManager::install("tidyselect",update=F)}
 if(!require("utils",quietly=TRUE)){BiocManager::install("utils",update=F)}

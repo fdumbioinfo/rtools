@@ -18,28 +18,28 @@ if(!require("moalstringdbdr",quietly=TRUE)){install.packages("moalstringdbdr",re
 if(!require("moalstringdbss",quietly=TRUE)){install.packages("moalstringdbss",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 # depend packages
 if(!require("BiocManager",quietly=TRUE)){install.packages("BiocManager")}
-if(!require("broom",quietly=TRUE)){BiocManager::install("broom",update=F)}
-if(!require("dendextend",quietly=TRUE)){BiocManager::install("dendextend",update=F)}
-if(!require("doParallel",quietly=TRUE)){BiocManager::install("doParallel",update=F)}
-if(!require("dplyr",quietly=TRUE)){BiocManager::install("dplyr",update=F)}
-if(!require("forcats",quietly=TRUE)){BiocManager::install("forcats",update=F)}
-if(!require("foreach",quietly=TRUE)){BiocManager::install("foreach",update=F)}
-if(!require("ggforce",quietly=TRUE)){BiocManager::install("ggforce",update=F)}
-if(!require("ggpubr",quietly=TRUE)){BiocManager::install("ggpubr",update=F)}
-if(!require("gplots",quietly=TRUE)){BiocManager::install("gplots",update=F)}
-if(!require("ggplot2",quietly=TRUE)){BiocManager::install("ggplot2",update=F)}
-if(!require("ggrepel",quietly=TRUE)){BiocManager::install("ggrepel",update=F)}
-if(!require("grDevices",quietly=TRUE)){BiocManager::install("grDevices",update=F)}
-if(!require("gridExtra",quietly=TRUE)){BiocManager::install("gridExtra",update=F)}
-if(!require("igraph",quietly=TRUE)){BiocManager::install("igraph",update=F)}
-if(!require("parallel",quietly=TRUE)){BiocManager::install("parallel",update=F)}
-if(!require("plyr",quietly=TRUE)){BiocManager::install("plyr",update=F)}
+if(!require("broom",quietly=TRUE)){install.packages("broom",update=F)}
+if(!require("dendextend",quietly=TRUE)){install.packages("dendextend",update=F)}
+if(!require("doParallel",quietly=TRUE)){install.packages("doParallel",update=F)}
+if(!require("dplyr",quietly=TRUE)){install.packages("dplyr",update=F)}
+if(!require("forcats",quietly=TRUE)){install.packages("forcats",update=F)}
+if(!require("foreach",quietly=TRUE)){install.packages("foreach",update=F)}
+if(!require("ggforce",quietly=TRUE)){install.packages("ggforce",update=F)}
+if(!require("ggpubr",quietly=TRUE)){install.packages("ggpubr",update=F)}
+if(!require("gplots",quietly=TRUE)){install.packages("gplots",update=F)}
+if(!require("ggplot2",quietly=TRUE)){install.packages("ggplot2",update=F)}
+if(!require("ggrepel",quietly=TRUE)){install.packages("ggrepel",update=F)}
+if(!require("graphics",quietly=TRUE)){install.packages("graphics",update=F)} # base
+if(!require("gridExtra",quietly=TRUE)){install.packages("gridExtra",update=F)}
+if(!require("igraph",quietly=TRUE)){install.packages("igraph",update=F)}
+if(!require("parallel",quietly=TRUE)){install.packages("parallel",update=F)} # base
+if(!require("plyr",quietly=TRUE)){install.packages("plyr",update=F)}
 if(!require("Rgraphviz",quietly=TRUE)){BiocManager::install("Rgraphviz",update=F)}
-if(!require("graphics",quietly=TRUE)){BiocManager::install("graphics",update=F)}
-if(!require("stringr",quietly=TRUE)){BiocManager::install("stringr",update=F)}
-if(!require("tidyselect",quietly=TRUE)){BiocManager::install("tidyselect",update=F)}
-if(!require("utils",quietly=TRUE)){BiocManager::install("utils",update=F)}
-if(!require("colourvalues",quietly=TRUE)){BiocManager::install("colourvalues",update=F)}
+if(!require("scales",quietly=TRUE)){install.packages("scales",update=F)}
+if(!require("stringr",quietly=TRUE)){install.packages("stringr",update=F)}
+if(!require("tidyselect",quietly=TRUE)){install.packages("tidyselect",update=F)}
+if(!require("utils",quietly=TRUE)){install.packages("utils",update=F)} # base
+if(!require("colourvalues",quietly=TRUE)){install.packages("colourvalues",update=F)}
 if(!require("fgsea",quietly=TRUE)){BiocManager::install("fgsea",update=F)}
 if(!require("limma",quietly=TRUE)){BiocManager::install("limma",update=F)}
 # moal package
