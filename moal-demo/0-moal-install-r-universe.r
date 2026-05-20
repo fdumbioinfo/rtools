@@ -27,6 +27,7 @@ if(!require("foreach",quietly=TRUE)){BiocManager::install("foreach",update=F)}
 if(!require("ggforce",quietly=TRUE)){BiocManager::install("ggforce",update=F)}
 if(!require("ggpubr",quietly=TRUE)){BiocManager::install("ggpubr",update=F)}
 if(!require("gplots",quietly=TRUE)){BiocManager::install("gplots",update=F)}
+if(!require("ggplot2",quietly=TRUE)){BiocManager::install("ggplot2",update=F)}
 if(!require("ggrepel",quietly=TRUE)){BiocManager::install("ggrepel",update=F)}
 if(!require("grDevices",quietly=TRUE)){BiocManager::install("grDevices",update=F)}
 if(!require("gridExtra",quietly=TRUE)){BiocManager::install("gridExtra",update=F)}
