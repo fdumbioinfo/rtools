@@ -5,8 +5,11 @@
 # date: 28062026
 # -----
 #
+# moal install
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
+#
 library(moal)
-setwd("~/Desktop/IPSIT/communication/JOBIM/Jobim2026/rwdjobim26/GSE244597")
+# setwd("~/Desktop/IPSIT/communication/JOBIM/Jobim2026/rwdjobim26/GSE244597")
 #
 "GSE244597_normdata_12_47123.tsv" %>% input -> m0
 m0 %>% head

@@ -1,5 +1,15 @@
+# -----
+# UMS IPSIT BIOINFO - Paris-Saclay
+# Licence GPL-3 - https://github.com/fdumbioinfo/moal
+# title: preprocessing RNAseq normalization from rawcount
+# date: 28062026
+# -----
+#
+# moal install
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
+#
 library(moal)
-setwd("~/Desktop/IPSIT/communication/JOBIM/Jobim2026/rwdjobim26/GSE244597")
+# setwd("~/Desktop/IPSIT/communication/JOBIM/Jobim2026/rwdjobim26/GSE244597")
 #
 # QC/filter/norm
 #
@@ -37,6 +47,7 @@ m1 %>% moal::qc(s0,dirname = DirName0)
 # normalization
 #
 if(!require("edgeR",quietly=TRUE)){ BiocManager::install("edgeR",update = F) }
+if(!require("limma",quietly=TRUE)){ BiocManager::install("limma",update = F) }
 #
 colnames(m1)[1] <- "rowID"
 m1 %>%
@@ -69,5 +80,5 @@ m4 %>% head
 m4 %>% dim
 paste("GSE244597_normdata_",ncol(m4)-1,"_",nrow(m4),".tsv",sep="") -> FileName0
 FileName0
-m4 %>% output(FileName0)
+m4 %>% moal::output(FileName0)
 #

@@ -5,7 +5,9 @@
 # date: 28062026
 # -----
 #
+# moal install
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
+#
 library(moal)
 # setwd("~/Desktop/IPSIT/communication/JOBIM/Jobim2026/rwdjobim26/GSE244597")
 #
@@ -37,7 +39,7 @@ data.frame(SampleID,BMPR2,BMP9,GROUP,REP,GEOID,SampleID2,SampleName) -> s0
 s0 %>% head
 s0 %>% dim
 s0 %>% output("GSE244597_metadata_12.tsv")
-#
+# 
 "GSE244597_metadata_12.tsv" %>% input -> s0
 s0 %>% head
 s0 %>% dim
@@ -47,7 +49,12 @@ s0$BMPR2
 s0$BMP9
 s0$BMP9 %>% ordered(c("NS","BMP9")) -> s0$BMP9
 s0$BMP9
-"GSE244597_rawCountMatrix.csv" %>% input(sep=",") -> m0
+# download from GEO NCBI GSE244597 or from demos using github GSE244597_rawCountMatrix.csv
+if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
+"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/jobim2026/GSE244597_rawCountMatrix.csv" -> url
+data.table::fread(url) %>% data.frame(check.names = F) -> m0
+# or download from GEO NCBI GSE244597
+# "GSE244597_rawCountMatrix.csv" %>% input(sep=",") -> m0
 m0 %>% head
 m0 %>% dim
 m0 %>% dplyr::select(3:ncol(m0)) -> m2
