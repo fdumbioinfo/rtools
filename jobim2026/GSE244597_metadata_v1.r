@@ -1,8 +1,17 @@
+# -----
+# UMS IPSIT BIOINFO - Paris-Saclay
+# Licence GPL-3 - https://github.com/fdumbioinfo/moal
+# title: metadata
+# date: 28062026
+# -----
+#
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
 library(moal)
-setwd("~/Desktop/IPSIT/communication/JOBIM/Jobim2026/rwdjobim26/GSE244597")
+# setwd("~/Desktop/IPSIT/communication/JOBIM/Jobim2026/rwdjobim26/GSE244597")
 #
 # https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE244597
 #
+# copy sample table and paste in RStudio using read_clip 
 clipr::read_clip() -> cl
 cl %>% head
 #
