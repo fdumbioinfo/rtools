@@ -14,6 +14,7 @@ library(moal)
 # https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE244597
 #
 # copy sample table and paste in RStudio using read_clip 
+if(!require("clipr",quietly=TRUE)){install.packages("clipr")}
 clipr::read_clip() -> cl
 cl %>% head
 #
