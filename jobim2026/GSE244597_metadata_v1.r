@@ -35,7 +35,7 @@ paste(BMPR2,BMP9,REP,sep="_") -> SampleID2
 # "BMP9" %>% annot
 # "BMPR2" %>% annot
 paste("s",1:length(GEOID),sep="") -> SampleID
-paste(SampleID,TREATMENT,REP,sep="_") -> SampleName
+paste(SampleID,GROUP,REP,sep="_") -> SampleName
 data.frame(SampleID,BMPR2,BMP9,GROUP,REP,GEOID,SampleID2,SampleName) -> s0
 s0 %>% head
 s0 %>% dim

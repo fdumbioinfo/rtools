@@ -5,7 +5,8 @@
 # date: 11122025
 # -----
 # 
-options(pkgType = "binary")
+if(!(Sys.info()[1] == "Linux")){options(pkgType = "binary")}
+# options(pkgType = "binary")
 # annotation packages
 if(!require("moalannotgene",quietly=TRUE)){install.packages("moalannotgene",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 if(!require("moalannotensg",quietly=TRUE)){install.packages("moalannotensg",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
