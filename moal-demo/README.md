@@ -7,10 +7,10 @@
 # IPSIT univ Paris-Saclay - GNU GPL-3
 # https://github.com/fdumbioinfo/moal
 # title: moal install from r-universe
-# date: 11122025
+# date: 16092026
 # -----
 # 
-options(pkgType = "binary")
+if(!(Sys.info()[1] == "Linux")){options(pkgType = "binary")}
 # annotation packages
 if(!require("moalannotgene",quietly=TRUE)){install.packages("moalannotgene",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 if(!require("moalannotensg",quietly=TRUE)){install.packages("moalannotensg",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
@@ -21,6 +21,7 @@ if(!require("moalstringdbmm",quietly=TRUE)){install.packages("moalstringdbmm",re
 if(!require("moalstringdbrn",quietly=TRUE)){install.packages("moalstringdbrn",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 if(!require("moalstringdbdr",quietly=TRUE)){install.packages("moalstringdbdr",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 if(!require("moalstringdbss",quietly=TRUE)){install.packages("moalstringdbss",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
+if(!require("moalstringdboa",quietly=TRUE)){install.packages("moalstringdboa",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 # depend packages
 if(!require("BiocManager",quietly=TRUE)){install.packages("BiocManager")}
 if(!require("broom",quietly=TRUE)){install.packages("broom",update=F)}
