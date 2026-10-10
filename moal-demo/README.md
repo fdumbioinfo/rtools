@@ -126,9 +126,6 @@ omic(
   dopar = T, nbcore = NULL, liblocpath = NULL, savehistory = T )
 #
 ```
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/1-moal-omic-demo.r")
-```
 2 - moal::ena() demo
 ```r
 # -----
@@ -198,9 +195,6 @@ omicdata %>% str
 ena(omicdata=omicdata,dat=dat,factor=factor,species="hs",dirname="GSEA_T21vsControl_23786",path="2-ena-outputdata")
 #
 ```
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-moal-ena-demo.r")
-```
 3 - moal::volcanoplot() demo
 ```r
 # -----
@@ -231,9 +225,6 @@ volcanoplot(omicdata,genenamelist=genenamelist,pval=0.05,fc=1.5) -> p
 ggsave(plot = p, filename = "./3-volcanoplot-outputdata/Volcanoplot_list_T21vsCTL_23786.pdf")
 #
 ```
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/3-moal-volcanoplot-demo.r")
-```
 4 - moal::qc() demo
 ```r
 # -----
@@ -263,9 +254,6 @@ sif$TISSUE %>% as.factor -> sif$TISSUE
 # qualitry controls function
 moal::qc(dat=dat,sif=sif,dirname="GSE65055",path="4-QCs-outputdata")
 #
-```
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/4-moal-QCs-demo.r")
 ```
 5 - moal::heatmap() demo
 ```r
@@ -317,9 +305,6 @@ moal::heatmap(dat=dat,factor=factor,labRow=heatmapdat$Symbol,labCol=sif$SampleNa
 graphics.off()
 #
 ```
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-moal-heatmap-demo.r")
-```
 6 - moal::venn() demo
 ```r
 # -----
@@ -344,9 +329,6 @@ data.table::fread(url) %>% data.frame -> l2
 data.table::fread(url) %>% data.frame -> l3
 list(l1$rowID,l2$rowID,l3$rowID) %>% moal::venn(export = T,listnames = c("T21","T13","T8"),path = "6-venn-outputdata")
 #
-```
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/6-moal-venn-demo.r")
 ```
 7 - moal::normalization() demo
 ```r
@@ -379,7 +361,4 @@ dat %>% dplyr::select(-1) %>% moal::norm(method = "quantile") %>% data.frame(row
 normdat %>% str
 moal::qc(dat=normdat,sif=sif,dirname="normdata",path="7-normalization-outputdata")
 #
-```
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/7-moal-normalization-demo.r")
 ```
