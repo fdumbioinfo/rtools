@@ -1,8 +1,7 @@
 # -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
+# Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
 # title: moal install from r-universe
-# date: 11122025
+# date: 10-10-2026
 # -----
 # 
 if(!(Sys.info()[1] == "Linux")){options(pkgType = "binary")}
@@ -24,6 +23,7 @@ if(!require("broom",quietly=TRUE)){install.packages("broom",update=F)}
 if(!require("dendextend",quietly=TRUE)){install.packages("dendextend",update=F)}
 if(!require("doParallel",quietly=TRUE)){install.packages("doParallel",update=F)}
 if(!require("dplyr",quietly=TRUE)){install.packages("dplyr",update=F)}
+if(!require("edgeR",quietly=TRUE)){BiocManager::install("edgeR",update=F)}
 if(!require("forcats",quietly=TRUE)){install.packages("forcats",update=F)}
 if(!require("foreach",quietly=TRUE)){install.packages("foreach",update=F)}
 if(!require("ggforce",quietly=TRUE)){install.packages("ggforce",update=F)}
