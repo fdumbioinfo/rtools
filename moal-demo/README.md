@@ -1,10 +1,10 @@
 <b><h3>MOAL demos</h3></b>
 
-moal install
+<b>moal install</b>
 ```r
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
 ```
-1 - moal::ena() demo
+<b>1 - moal::ena() demo</b>
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
