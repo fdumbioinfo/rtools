@@ -10,7 +10,7 @@
 # date: 11122025
 # -----
 # 
-options(pkgType = "binary")
+if(!(Sys.info()[1] == "Linux")){options(pkgType = "binary")}
 # annotation packages
 if(!require("moalannotgene",quietly=TRUE)){install.packages("moalannotgene",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 if(!require("moalannotensg",quietly=TRUE)){install.packages("moalannotensg",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
@@ -21,12 +21,14 @@ if(!require("moalstringdbmm",quietly=TRUE)){install.packages("moalstringdbmm",re
 if(!require("moalstringdbrn",quietly=TRUE)){install.packages("moalstringdbrn",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 if(!require("moalstringdbdr",quietly=TRUE)){install.packages("moalstringdbdr",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 if(!require("moalstringdbss",quietly=TRUE)){install.packages("moalstringdbss",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
+if(!require("moalstringdboa",quietly=TRUE)){install.packages("moalstringdboa",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 # depend packages
 if(!require("BiocManager",quietly=TRUE)){install.packages("BiocManager")}
 if(!require("broom",quietly=TRUE)){BiocManager::install("broom",update=F)}
 if(!require("dendextend",quietly=TRUE)){BiocManager::install("dendextend",update=F)}
 if(!require("doParallel",quietly=TRUE)){BiocManager::install("doParallel",update=F)}
 if(!require("dplyr",quietly=TRUE)){BiocManager::install("dplyr",update=F)}
+if(!require("edgeR",quietly=TRUE)){BiocManager::install("edgeR",update=F)}
 if(!require("forcats",quietly=TRUE)){BiocManager::install("forcats",update=F)}
 if(!require("foreach",quietly=TRUE)){BiocManager::install("foreach",update=F)}
 if(!require("ggforce",quietly=TRUE)){BiocManager::install("ggforce",update=F)}
@@ -56,17 +58,18 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-mo
 1 - moal::omic() demo
 ```r
 # -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
-# title: moal omic() demo
-# date: 11-12-2025
+# Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
+# title: omic
+# date: 29-09-2026
 # -----
-#
-# libraries
+# 
+# moal install
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
+# libraries
 if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
 library(moal)
 ??moal::omic
+# "~/Desktop" %>% setwd
 # output directory
 if(!file.exists("1-omic-outputdata")){"1-omic-outputdata" %>% dir.create}
 # loading data
@@ -82,15 +85,45 @@ sif %>% head
 sif$ANEUPLOIDY %>% ordered(c("Control","T13","T18","T21")) -> sif$ANEUPLOIDY
 sif$TISSUE %>% as.factor -> sif$TISSUE
 # create annotation
-dat$rowID %>% moal::annot(species ="hs", idtype = "GENE", dboutput = "ncbi") -> annot
+dat$rowID %>% annotdb(species ="hs", idtype = "GENE", dboutput = "ncbi") -> annot
 annot %>% head
 annot %>% str
-annot %>% dplyr::select(GeneID,Symbol) -> annot
+annot %>% select(GeneID,Symbol) -> annot
 annot %>% head
 # omic analysis with MSigDB GSEA functional analysis
 dat %>% data.frame -> dat
 sif %>% data.frame -> sif
-moal::omic(dat=dat,sif=sif,annot=annot,species="hs",model="ANEUPLOIDY",batch="TISSUE",dirname="GSE65055",path="1-omic-outputdata")
+"1-omic-outputdata" -> path
+"GSE65055" -> dirname
+NULL -> sample
+#
+omic(
+  #
+  # input
+  dat = dat , sif = sif,
+  annot = annot, species = "hs",
+  #
+  # anova model
+  model = "ANEUPLOIDY", padj = "none", anovafc = "anovafc",
+  batch = "TISSUE", 
+  # paired = NULL,
+  #
+  # anova all filtering
+  # threshold = c(1, 2, 3, 4, 9, 10, 11, 12),
+  dovenn = T, docluster = T, dopattern = T,
+  #
+  # plot
+  doheatmap = T, dovolcanoplot = T, dolineplot = T, doboxplotrow = T,
+  #
+  # functional analysis doena for GSEA and doenaora for ORA significant feature lists
+  doena = T, doenaora = F, gmtfiles = NULL,
+  dotopheatmap = T, dotopgenesetheatmap = T, dogmtgenesetheatmap = F, 
+  dotopnetwork = T, dotopgenesetnetwork = F, dogmtgenesetnetwork = F, 
+  # 
+  # other par
+  path = path, dirname = dirname, sample = sample,
+  # parallelisation
+  dopar = T, nbcore = NULL, liblocpath = NULL, savehistory = T )
 #
 ```
 ```r
@@ -99,10 +132,9 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/1-mo
 2 - moal::ena() demo
 ```r
 # -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
+# Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
 # title: moal ena() demo
-# date: 08-12-2025
+# date: 10-10-2026
 # -----
 #
 # -----
@@ -125,7 +157,7 @@ omicdata %>% str
 #
 # example with Symbol list without fold-change and p-value Symbol
 #
-moal::ena(omicdata=omicdata$Symbol,species="hs",dirname="T21vsControl_243",path="2-ena-outputdata")
+ena(omicdata=omicdata$Symbol,species="hs",dirname="T21vsControl_243",path="2-ena-outputdata")
 #
 # example with Symbol list with fold-change and p-value
 #
@@ -133,14 +165,14 @@ moal::ena(omicdata=omicdata$Symbol,species="hs",dirname="T21vsControl_243",path=
 data.table::fread(url) %>% data.frame -> sif
 sif$ANEUPLOIDY %>% ordered(c("Control","T13","T18","T21")) -> factor
 factor
-moal::ena(omicdata=omicdata,factor=factor,species="hs",dirname="fc_T21vsControl_243",path="2-ena-outputdata")
+ena(omicdata=omicdata,factor=factor,species="hs",dirname="fc_T21vsControl_243",path="2-ena-outputdata")
 #
 # example with Symbol list with fold-change and p-value and expression data for heatmaps
 #
 "https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_datanorm_RBE_TISSUE_22_23786.tsv" -> url
 data.table::fread(url) %>% data.frame -> dat
 dat %>% head
-moal::ena(omicdata=omicdata,dat=dat,factor=factor,species="hs",dirname="heatmaps_T21vsControl_243",path="2-ena-outputdata")
+ena(omicdata=omicdata,dat=dat,factor=factor,species="hs",dirname="heatmaps_T21vsControl_243",path="2-ena-outputdata")
 #
 # example with Symbol list with fold-change and p-value and expression data for heatmaps and
 # adding gmtfiles for heatmap on specific genesets
@@ -148,7 +180,7 @@ moal::ena(omicdata=omicdata,dat=dat,factor=factor,species="hs",dirname="heatmaps
 "https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/c2_apoptosis_lung.gmt" %>% download.file(destfile = "c2_apoptosis_lung.gmt")
 "https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/c2_apoptosis_skin.gmt" %>% download.file(destfile = "c2_apoptosis_skin.gmt")
 list.files(full.names=T) %>% grep(".gmt$",.,value=T) -> gmtfiles
-moal::ena(omicdata=omicdata,dat=dat,factor=factor,gmtfiles=gmtfiles,species="hs",dirname="gmtfiles_T21vsControl_243",path="2-ena-outputdata")
+ena(omicdata=omicdata,dat=dat,factor=factor,gmtfiles=gmtfiles,species="hs",dirname="gmtfiles_T21vsControl_243",path="2-ena-outputdata")
 #
 # -----
 # 2 - functional analysis using GeneSet Enrichment analysis (GSEA)
@@ -163,7 +195,7 @@ omicdata %>% str
 #
 # example with not filtered differential analysis results with fold-change and p-value and expression data for heatmaps
 #
-moal::ena(omicdata=omicdata,dat=dat,factor=factor,species="hs",dirname="GSEA_T21vsControl_23786",path="2-ena-outputdata")
+ena(omicdata=omicdata,dat=dat,factor=factor,species="hs",dirname="GSEA_T21vsControl_23786",path="2-ena-outputdata")
 #
 ```
 ```r
@@ -172,12 +204,10 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-mo
 3 - moal::volcanoplot() demo
 ```r
 # -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
-# title: moal volcanoplot() demo
-# date: 08-12-2025
+# Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
+# title:  moal volcanoplot() demo
+# date: 10-10-2026
 # -----
-#
 #
 # loading libraries
 if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
@@ -193,11 +223,11 @@ omicdata %>% str
 omicdata %>% dplyr::select(rowID,p_T21vsControl,fc_T21vsControl,Symbol) -> omicdata
 omicdata %>% str
 #
-moal::volcanoplot(omicdata,pval=0.05,fc=1.5) -> p
+volcanoplot(omicdata,pval=0.05,fc=1.5) -> p
 ggsave(plot = p, filename = "./3-volcanoplot-outputdata/Volcanoplot_p05_fc15_T21vsCTL_23786.pdf")
 # with Symbol list
 omicdata$Symbol %>% sample(size = 20) -> genenamelist
-moal::volcanoplot(omicdata,genenamelist=genenamelist,pval=0.05,fc=1.5) -> p
+volcanoplot(omicdata,genenamelist=genenamelist,pval=0.05,fc=1.5) -> p
 ggsave(plot = p, filename = "./3-volcanoplot-outputdata/Volcanoplot_list_T21vsCTL_23786.pdf")
 #
 ```
@@ -207,10 +237,9 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/3-mo
 4 - moal::qc() demo
 ```r
 # -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
-# title: moal qc() demo
-# date: 08-12-2025
+# Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
+# title:  moal qc() demo
+# date: 10-10-2026
 # -----
 #
 # loading libraries
@@ -241,10 +270,9 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/4-mo
 5 - moal::heatmap() demo
 ```r
 # -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
-# title: moal heatmap() demo
-# date: 08-12-2025
+# Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
+# title:  moal heatmap() demo
+# date: 10-10-2026
 # -----
 #
 # loading libraries
@@ -272,7 +300,7 @@ data.table::fread(url) %>% data.frame -> l1
 data.table::fread(url) %>% data.frame -> l2
 "https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/List_p05_fc15_ANEUPLOIDY_ud_T18vsControl_203.tsv" -> url
 data.table::fread(url) %>% data.frame -> l3
-c(l1$rowID,l2$rowID,l3$rowID) %>% unique %>% moal::annot(species ="hs", idtype = "GENE", dboutput = "ncbi") -> annot
+c(l1$rowID,l2$rowID,l3$rowID) %>% unique %>% annotdb(species ="hs", idtype = "GENE", dboutput = "ncbi") -> annot
 annot %>% head
 annot %>% str
 mode(dat$rowID) <- "character"
@@ -295,10 +323,9 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-mo
 6 - moal::venn() demo
 ```r
 # -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
-# title: moal venn() demo
-# date: 08-12-2025
+# Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
+# title:  moal venn() demo
+# date: 10-10-2026
 # -----
 #
 # loading libraries
@@ -324,10 +351,9 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/6-mo
 7 - moal::normalization() demo
 ```r
 # -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
-# title: moal omic() demo
-# date: 08-12-2025
+# Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
+# title:  moal normalization demo
+# date: 10-10-2026
 # -----
 #
 # loading libraries
@@ -357,36 +383,3 @@ moal::qc(dat=normdat,sif=sif,dirname="normdata",path="7-normalization-outputdata
 ```r
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/7-moal-normalization-demo.r")
 ```
-8 - moal demo all
-```r
-# -----
-# IPSIT univ Paris-Saclay - GNU GPL-3
-# https://github.com/fdumbioinfo/moal
-# title: moal demo
-# date: 11-12-2025
-# -----
-#
-# change working directory
-# setwd("~/Desktop/rwd/moal-demo")
-# 0 - moal install
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
-# 1 - omic analysis
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/1-moal-omic-demo.r")
-# 2 - functionnal analysis
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/2-moal-ena-demo.r")
-# 3 - volcanoplot
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/3-moal-volcanoplot-demo.r")
-# 4 - QCs
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/4-moal-QCs-demo.r")
-# 5 - heatmap
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/5-moal-heatmap-demo.r")
-# 6 - venn
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/6-moal-venn-demo.r")
-# 7 - normalization
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/7-moal-normalization-demo.r")
-#
-```
-```r
-source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/8-moal-demo-all.r")
-```
-
