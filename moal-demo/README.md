@@ -4,6 +4,13 @@
 ```r
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
 ```
+
+<b>moal install on a user local library</b>
+```r
+source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
+```
+
+
 <b>2 - moal::ena()</b>
 ```r
 # -----
