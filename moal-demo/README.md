@@ -15,7 +15,7 @@ source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-mo
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
-# title: moal ena() demo
+# title: 2 - moal ena() demo
 # date: 10-10-2026
 # -----
 #
@@ -84,7 +84,7 @@ ena(omicdata=omicdata,dat=dat,factor=factor,species="hs",dirname="GSEA_T21vsCont
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
-# title:  moal volcanoplot() demo
+# title: 3 - moal volcanoplot() demo
 # date: 10-10-2026
 # -----
 #
@@ -114,7 +114,7 @@ ggsave(plot = p, filename = "./3-volcanoplot-outputdata/Volcanoplot_list_T21vsCT
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
-# title:  moal qc() demo
+# title: 4 - moal qc() demo
 # date: 10-10-2026
 # -----
 #
@@ -144,7 +144,7 @@ moal::qc(dat=dat,sif=sif,dirname="GSE65055",path="4-QCs-outputdata")
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
-# title:  moal heatmap() demo
+# title: 5 - moal heatmap() demo
 # date: 10-10-2026
 # -----
 #
@@ -194,7 +194,7 @@ graphics.off()
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
-# title:  moal venn() demo
+# title: 6 - moal venn() demo
 # date: 10-10-2026
 # -----
 #
@@ -219,7 +219,7 @@ list(l1$rowID,l2$rowID,l3$rowID) %>% moal::venn(export = T,listnames = c("T21","
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
-# title:  moal normalization demo
+# title: 7 - moal normalization demo
 # date: 10-10-2026
 # -----
 #
@@ -245,5 +245,53 @@ moal::qc(dat=dat,sif=sif,dirname="rawdata",path="7-normalization-outputdata")
 dat %>% dplyr::select(-1) %>% moal::norm(method = "quantile") %>% data.frame(rowID=dat$rowID,.) -> normdat
 normdat %>% str
 moal::qc(dat=normdat,sif=sif,dirname="normdata",path="7-normalization-outputdata")
+#
+```
+<b>8 - moal::replacena()</b>
+```r
+# -----
+# UMS IPSIT BIOINFO - Licence GPL-3
+# IPSIT univ Paris-Saclay - GNU GPL-3
+# title: 8 - moal replacena() demo
+# date: 08-12-2025
+# -----
+#
+# loading libraries
+if(!require("moal",quietly=TRUE)){source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")}
+if(!require("data.table",quietly=TRUE)){install.packages("data.table")}
+library(moal)
+??moal::norm
+# output directory
+if(!file.exists("8-replacena-outputdata")){"8-replacena-outputdata" %>% dir.create}
+# simulated data
+rnorm(5*10000,5000,500) %>% matrix(nrow = 10000) %>%
+  cbind(rnorm(5*10000,2000,800) %>% matrix(nrow = 10000)) %>% 
+  data.frame(rowID=paste("row",1:nrow(.),sep=""),.) -> dat
+dat %>% str
+# add 0 value to data
+dat %>% select(-1) %>% unlist -> t
+sample(1:length(t),10000) %>% replace(t,.,0) %>% matrix(nrow=nrow(dat)) %>% 
+  data.frame(rowID=paste("row",1:nrow(dat),sep=""),.) -> dat
+dat %>% head
+# create sample information file
+rep(c("B1","B2"),c(5,5)) %>% as.factor -> BATCH
+paste("s",1:10,sep="") -> SampleID
+data.frame(SampleID,BATCH) -> sif
+dat %>% setNames(c("rowID",sif$SampleID)) -> dat
+# raw data expression data
+dat %>% qc(sif=sif,dirname="rawdata",path="8-replacena-outputdata")
+# replace 0
+dat %>% str
+dat %>% replacena -> datna
+datna %>% str
+datna %>% qc(sif=sif,dirname="rawdatana",path="8-replacena-outputdata")
+# normalization quantile and log2
+datna %>% dplyr::select(-1) %>% norm(method = "quantile",log=T) %>% data.frame(rowID=datna$rowID,.) -> normdat
+normdat %>% str
+normdat %>% qc(sif=sif,dirname="normdata_quantile",path="8-replacena-outputdata")
+# normalization TMM and log2
+datna %>% dplyr::select(-1) %>% norm(method = "TMM") %>% data.frame(rowID=datna$rowID,.) -> normdat
+normdat %>% str
+normdat %>% qc(sif=sif,dirname="normdata_TMM",path="8-replacena-outputdata")
 #
 ```
