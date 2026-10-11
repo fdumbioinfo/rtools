@@ -4,7 +4,7 @@
 ```r
 source("https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/0-moal-install-r-universe.r")
 ```
-<b>1 - moal::ena()</b>
+<b>2 - moal::ena()</b>
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
@@ -73,7 +73,7 @@ omicdata %>% str
 ena(omicdata=omicdata,dat=dat,factor=factor,species="hs",dirname="GSEA_T21vsControl_23786",path="2-ena-outputdata")
 #
 ```
-<b>2 - moal::volcanoplot()</b>
+<b>3 - moal::volcanoplot()</b>
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
@@ -103,7 +103,7 @@ volcanoplot(omicdata,genenamelist=genenamelist,pval=0.05,fc=1.5) -> p
 ggsave(plot = p, filename = "./3-volcanoplot-outputdata/Volcanoplot_list_T21vsCTL_23786.pdf")
 #
 ```
-<b>3 - moal::qc()</b>
+<b>4 - moal::qc()</b>
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
@@ -133,7 +133,7 @@ sif$TISSUE %>% as.factor -> sif$TISSUE
 moal::qc(dat=dat,sif=sif,dirname="GSE65055",path="4-QCs-outputdata")
 #
 ```
-<b>4 - moal::heatmap()</b>
+<b>5 - moal::heatmap()</b>
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
@@ -183,7 +183,7 @@ moal::heatmap(dat=dat,factor=factor,labRow=heatmapdat$Symbol,labCol=sif$SampleNa
 graphics.off()
 #
 ```
-<b>5 - moal::venn()</b>
+<b>6 - moal::venn()</b>
 ```r
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
