@@ -43,7 +43,7 @@ ena(omicdata=omicdata$Symbol,species="hs",dirname="T21vsControl_243",path="2-ena
 #
 # example with Symbol list with fold-change and p-value
 #
-"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_4_22.tsv" -> url
+"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_22.tsv" -> url
 data.table::fread(url) %>% data.frame -> sif
 sif$ANEUPLOIDY %>% ordered(c("Control","T13","T18","T21")) -> factor
 factor
@@ -130,7 +130,7 @@ if(!file.exists("4-QCs-outputdata")){"4-QCs-outputdata" %>% dir.create}
 data.table::fread(url) %>% data.frame -> dat
 dat %>% head
 # loading sample information file
-"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_4_22.tsv" -> url
+"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_22.tsv" -> url
 data.table::fread(url) %>% data.frame -> sif
 sif %>% head
 # Ordering factors for pairwise comparison fold-changes
@@ -162,7 +162,7 @@ if(!file.exists("5-heatmap-outputdata")){"5-heatmap-outputdata" %>% dir.create}
 data.table::fread(url) %>% data.frame -> dat
 dat %>% head
 # loading sample information file
-"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_4_22.tsv" -> url
+"https://raw.githubusercontent.com/fdumbioinfo/rtools/main/moal-demo/inputdata/GSE65055_metadata_22.tsv" -> url
 data.table::fread(url) %>% data.frame -> sif
 sif %>% head
 # Ordering factors for pairwise comparison fold-changes
