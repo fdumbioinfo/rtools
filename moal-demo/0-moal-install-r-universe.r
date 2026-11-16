@@ -33,9 +33,12 @@ if(!require("ggplot2",quietly=TRUE)){install.packages("ggplot2",update=F)}
 if(!require("ggrepel",quietly=TRUE)){install.packages("ggrepel",update=F)}
 if(!require("graphics",quietly=TRUE)){install.packages("graphics",update=F)} # base
 if(!require("gridExtra",quietly=TRUE)){install.packages("gridExtra",update=F)}
+if(!require("htmltools",quietly=TRUE)){install.packages("htmltools",update=F)}
+if(!require("grDevices",quietly=TRUE)){install.packages("grDevices",update=F)}
 if(!require("igraph",quietly=TRUE)){install.packages("igraph",update=F)}
 if(!require("parallel",quietly=TRUE)){install.packages("parallel",update=F)} # base
 if(!require("plyr",quietly=TRUE)){install.packages("plyr",update=F)}
+if(!require("quarto",quietly=TRUE)){install.packages("quarto",update=F)}
 if(!require("Rgraphviz",quietly=TRUE)){BiocManager::install("Rgraphviz",update=F)}
 if(!require("scales",quietly=TRUE)){install.packages("scales",update=F)}
 if(!require("stringr",quietly=TRUE)){install.packages("stringr",update=F)}
