@@ -1,7 +1,7 @@
 # -----
 # Paris-Saclay - GPL3 - https://github.com/fdumbioinfo/moal
 # title: moal install from r-universe
-# date: 10-10-2026
+# date: 16-11-2026
 # -----
 # 
 if(!(Sys.info()[1] == "Linux")){options(pkgType = "binary")}
@@ -36,6 +36,7 @@ if(!require("gridExtra",quietly=TRUE)){install.packages("gridExtra",update=F)}
 if(!require("htmltools",quietly=TRUE)){install.packages("htmltools",update=F)}
 if(!require("grDevices",quietly=TRUE)){install.packages("grDevices",update=F)}
 if(!require("igraph",quietly=TRUE)){install.packages("igraph",update=F)}
+if(!require("magick",quietly=TRUE)){install.packages("magick",update=F)}
 if(!require("parallel",quietly=TRUE)){install.packages("parallel",update=F)} # base
 if(!require("plyr",quietly=TRUE)){install.packages("plyr",update=F)}
 if(!require("quarto",quietly=TRUE)){install.packages("quarto",update=F)}
