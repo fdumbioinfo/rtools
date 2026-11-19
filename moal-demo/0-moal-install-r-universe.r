@@ -23,7 +23,7 @@ if(!require("broom",quietly=TRUE)){install.packages("broom",update=F)}
 if(!require("dendextend",quietly=TRUE)){install.packages("dendextend",update=F)}
 if(!require("doParallel",quietly=TRUE)){install.packages("doParallel",update=F)}
 if(!require("dplyr",quietly=TRUE)){install.packages("dplyr",update=F)}
-if(!require("edgeR",quietly=TRUE)){BiocManager::install("edgeR",update=F)}
+if(!require("edgeR",quietly=TRUE)){BiocManager::install("edgeR",update=FALSE)}
 if(!require("forcats",quietly=TRUE)){install.packages("forcats",update=F)}
 if(!require("foreach",quietly=TRUE)){install.packages("foreach",update=F)}
 if(!require("ggforce",quietly=TRUE)){install.packages("ggforce",update=F)}
@@ -40,14 +40,14 @@ if(!require("magick",quietly=TRUE)){install.packages("magick",update=F)}
 if(!require("parallel",quietly=TRUE)){install.packages("parallel",update=F)} # base
 if(!require("plyr",quietly=TRUE)){install.packages("plyr",update=F)}
 if(!require("quarto",quietly=TRUE)){install.packages("quarto",update=F)}
-if(!require("Rgraphviz",quietly=TRUE)){BiocManager::install("Rgraphviz",update=F)}
+if(!require("Rgraphviz",quietly=TRUE)){BiocManager::install("Rgraphviz",update=FALSE)}
 if(!require("scales",quietly=TRUE)){install.packages("scales",update=F)}
 if(!require("stringr",quietly=TRUE)){install.packages("stringr",update=F)}
 if(!require("tidyselect",quietly=TRUE)){install.packages("tidyselect",update=F)}
 if(!require("utils",quietly=TRUE)){install.packages("utils",update=F)} # base
 if(!require("colourvalues",quietly=TRUE)){install.packages("colourvalues",update=F)}
-if(!require("fgsea",quietly=TRUE)){BiocManager::install("fgsea",update=F)}
-if(!require("limma",quietly=TRUE)){BiocManager::install("limma",update=F)}
+if(!require("fgsea",quietly=TRUE)){BiocManager::install("fgsea",update=FALSE)}
+if(!require("limma",quietly=TRUE)){BiocManager::install("limma",update=FALSE)}
 # moal package
 if(!require("moal",quietly=TRUE)){install.packages("moal",repos=c("https://fdumbioinfo.r-universe.dev","https://cloud.r-project.org"))}
 #
